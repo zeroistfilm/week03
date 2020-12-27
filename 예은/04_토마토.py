@@ -8,7 +8,7 @@ tomato = []
 queue = deque()
 fresh = 0
 day = 0
-# 내 풀이 2 (day를 큐에 같이 넣자) (이 방법이 시간, 메모리 더 듦)
+# 내 풀이 2 (day를 큐에 같이 넣자) (파이파이 통과, 파이썬 시간초과) (이 방법이 시간, 메모리 더 듦)
 for k in range(h):
     temp1 = []
     for i in range(n):
