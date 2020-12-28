@@ -17,7 +17,6 @@ for i in range(n):
 coins = sorted(list(coins), reverse=True)
 visited = set()
 visited.update(coins)
-
 queue = deque(coins)
 
 count=0
@@ -26,7 +25,6 @@ while queue and not sucess:
     count +=1
     for i in range(len(queue)):
         cost = queue.popleft()
-
         if cost== k:
             sucess = True
             queue=None
@@ -36,7 +34,6 @@ while queue and not sucess:
                 if cost+c <=k and cost+c not in visited:
                     visited.add(cost+c)
                     queue.append(cost+c)
-
 if sucess:
     print(count)
 else:

@@ -1,7 +1,7 @@
 # https://www.acmicpc.net/problem/11725
 
 import sys
-sys.setrecursionlimit(100000) #런타임 에러 방지
+sys.setrecursionlimit(10**9) #런타임 에러 방지
 N = int(input())
 adjList = [[] for i in range(N)]
 
