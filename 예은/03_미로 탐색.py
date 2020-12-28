@@ -9,7 +9,7 @@ for i in range(n):
 
 def bfs(x, y):
     dx = [0, 0, 1, -1]
-    dy = [1, -1, 0 , 0]
+    dy = [1, -1, 0, 0]
     queue = deque([])
     queue.append((x, y))
     while queue:
@@ -17,7 +17,7 @@ def bfs(x, y):
         for i in range(4):
             nx = x + dx[i]
             ny = y + dy[i]
-            if nx < 0 or nx >= n or ny < 0 or ny >=  m:
+            if nx < 0 or nx >= n or ny < 0 or ny >= m:
                 continue
             if maze[nx][ny] == 0:
                 continue
