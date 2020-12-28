@@ -2,7 +2,7 @@ import sys
 read = sys.stdin.readline
 
 r, c = map(int, read().split())
-field = [list(map(lambda x: ord(x)-65, read().rstrip())) for _ in range(c)] # 아스키코드 값으로 전부 변환해서 저장
+field = [list(map(lambda x: ord(x)-65, read().rstrip())) for _ in range(r)] # 아스키코드 값으로 전부 변환해서 저장
 
 visited = [0] * 26
 visited[field[0][0]] = 1
