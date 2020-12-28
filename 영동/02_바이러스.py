@@ -10,6 +10,7 @@ for i in range(edge):
     adlist[y - 1].append(x - 1)
 
 infected=0
+
 def bfs(graph,start,visited,infected):
     from collections import deque
     queue=deque([start])

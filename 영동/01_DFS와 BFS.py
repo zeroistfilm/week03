@@ -26,6 +26,7 @@ def bfs(graph,v,visited):
     from collections import deque
     queue = deque([v])
     visited[v] = True
+
     while queue:
         a=queue.popleft()
         print(a+1,end=' ')
