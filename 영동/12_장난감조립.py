@@ -1,37 +1,36 @@
 # https://www.acmicpc.net/problem/2637
+
 from collections import deque, defaultdict
 import sys
 
 N = int(sys.stdin.readline())
 M = int(sys.stdin.readline())
-manual = [[]for i in range(N)]
-indegree= [[]for i in range(N)]
+
+need_part = [[] for i in range(N)]
+parts_needed = [0 for _ in range(N)]
+EA = [0 for _ in range(N)]
+visited = [False for _ in range(N)]
+basic=[]
+
 for i in range(M):
-    x,y,k = map(int,sys.stdin.readline().split())
-    for i in range(k):
-        manual[x-1].append(y-1)
-        indegree[y-1].append(x-1)
+    x,y,ea = map(int, input().split())
+    need_part[x-1].append([y-1,ea])
+    parts_needed[y-1]+=1
 
-base=defaultdict(int)
-
-for i in range(len(manual)):
-    if len(manual[i])==0: #기본부품
-       base[i]=0
-
-def topology():
-    queue=deque()
+while sum(parts_needed)>0:
     for i in range(N):
-        if len(indegree[i])==0:
-            queue.append(i)
-    while queue:
-        now = queue.popleft()
-        if manual[now] == []:
-            base[now]+=1
-            #print(now, '는 기본부품입니다.')
-        for i in manual[now]:
-                queue.append(i)
+        if not need_part[i] and visited[i] ==False:
+            basic.append(i)
+            visited[i] = True
+        if parts_needed[i]==0 and visited[i] ==False:
+            if EA[i]==0:
+                EA[i]=1
+            visited[i]=True
 
-topology()
+            for j in need_part[i]:
+                EA[j[0]]+=j[1]*EA[i]
+                parts_needed[j[0]]-=1
 
-for k, values in base.items():
-    print(k+1,values)
+
+for i in basic:
+    print(i+1, EA[i], sep=" ")
