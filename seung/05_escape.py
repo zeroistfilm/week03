@@ -5,29 +5,28 @@ ROW,COL = map(int,sys.stdin.readline().split())
 matrix = [list(sys.stdin.readline().strip()) for _ in range(ROW)]
 visit_map = [[0] * COL for _ in range(ROW)]
 
-queue = deque([])
-
+queue = deque()
 for row in range(ROW):
     for col in range(COL):
         if matrix[row][col] == '*':
-            # 물 먼저 다 넣고 고슴도치 넣기
+            # 물 먼저 다 넣고 고슴도치 front에 넣기
             queue.append([row,col])
         elif matrix[row][col] == 'S':
             # matrix[row][col] = 0
             hodgedog = [row,col]
         elif matrix[row][col] == 'D':
             bv_r, bv_c = row,col
-            # matrix[row][col] = 0 # 계산 편의상 0으로 해놓고 해당 위치를 따로 사용하기
-# print("전처리 후 matrix:",matrix)
-queue.append(hodgedog)
+
+queue.appendleft(hodgedog)
 
 dx = [-1,0,1,0] # 순서대로 좌, 상, 우, 하
 dy = [0,1,0,-1]
-
 def bfs(matrix,queue):
     flag = False
     while queue:
         x,y = queue.popleft()
+        if flag: # 고슴도치가 D에 도착했으면
+            break
         for i in range(4):
             next_x = x + dx[i]
             next_y = y + dy[i]
@@ -45,11 +44,10 @@ def bfs(matrix,queue):
                         matrix[next_x][next_y] = 'S'
                         visit_map[next_x][next_y] = visit_map[x][y] +1
                         queue.append([next_x, next_y])
-                    elif matrix[next_x][next_y] == 'D':
+                    elif matrix[next_x][next_y] == 'D': #고슴도치가 D에 도착할 수 있으면
                         flag = True
                         visit_map[next_x][next_y] = visit_map[x][y]+1
-                        return
-print(visit_map)
+                        break
 bfs(matrix,queue)
 if visit_map[bv_r][bv_c] == 0:
     print('KAKTUS')

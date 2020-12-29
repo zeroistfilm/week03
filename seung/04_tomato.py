@@ -53,19 +53,3 @@ if isTrue == True:
     print(-1)
 else:
     print(max_num-1)
-# for twod in matrix:
-#     for row in twod:
-#         if 0 in row:
-#             flag = True
-# if not flag:
-#     print(0)
-#     exit()
-# else:
-#     bfs(matrix, queue)
-#     for twod in matrix:
-#         for row in twod:
-#             if 0 in row:
-#                 print(-1)
-#                 exit()
-#     print(matrix)
-#     print(max(max(map(max,visit_map))))
