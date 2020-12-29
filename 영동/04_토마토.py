@@ -42,7 +42,6 @@ def bfs(graph,visited):
     return graph
 
 if not check_ferment(basket):
-
     visited = [[[False for _ in range(M)]for _ in range(N)]for _ in range(H)]
     after_ferment=bfs(basket,visited)
     #print(after_ferment)

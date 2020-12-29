@@ -60,9 +60,6 @@ def bfs(graph, start,water, visit):
                             visit[tmp[0]][tmp[1]] = True
                             graph[tmp[0]][tmp[1]] = graph[h[0]][h[1]]+1
 
-
-
-
 bfs(map,start,water,visit)
 if map[destination[0]][destination[1]]=='D':
     print('KAKTUS')

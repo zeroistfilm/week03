@@ -38,10 +38,3 @@ if sucess:
     print(count)
 else:
     print(-1)
-
-
-
-#
-#
-#
-#
