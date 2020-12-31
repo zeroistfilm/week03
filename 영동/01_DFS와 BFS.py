@@ -11,8 +11,8 @@ for i in range(M):
     adjacencymatrix[nodes[0] - 1][nodes[1] - 1] = 1
     adjacencymatrix[nodes[1] - 1][nodes[0] - 1] = 1
     #인접리스트 만들기
-    adjacencyList[nodes[1] - 1].append(nodes[0]-1)
-    adjacencyList[nodes[0] - 1].append(nodes[1]-1)
+    adjacencyList[nodes[1] - 1].append(nodes[0]-1) #
+    adjacencyList[nodes[0] - 1].append(nodes[1]-1) #
 
 
 def dfs(graph,v,visited):
