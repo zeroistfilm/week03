@@ -32,6 +32,5 @@ def solve():
             break
 
 solve()
-# 100|0 반례를 넣으니까 100번까지는 돌아야 하는데 visited 숫자를 주어버리니까 인덱스가 더 이상 안 돌아감. in visited로 가야하는 것 같다.
 
 
